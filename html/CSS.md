@@ -4,13 +4,17 @@
 ## CSS应用方式
 ### 外部样式表（推荐）
 * 通过<link>引入CSS
-    `<link rel="stylesheet" href="style.css">`
+    ```html
+    <link rel="stylesheet" href="style.css">
+    ```
 * 通过@import 引入样，放入css中
 ## 内部样式表
-* 将CSS放入页面的```<style>```元素中
+* 将CSS放入页面的`<style>`元素中
 ## 内联标签
 * 不推荐，但某些情况下很有用
-* ```<p style="background-color:red; font-size:24px;"></p>```
+ ```html
+ <p style="background-color:red; font-size:24px;"></p>
+ ```
 ## 选择器类型
 ### 基础选择器
 * \* 通用元素选择器，匹配页面任何元素（很少使用）
@@ -31,10 +35,10 @@
 
 ### 伪类选择器
 * E：first-child 匹配元素的第一个子元素
-* E: link 匹配所有未被点击的链接                    <!--a类选择器，多用于<a>标签 -->
-* E：visited 匹配所有已被点击的链接                 <!--a类选择器，多用于<a>标签 -->
-* E：active 匹配鼠标已经其上按下、还没有释放的E元素   <!--a类选择器，多用于<a>标签 -->
-* E：hover 匹配鼠标悬停其上的E元素                   <!--a类选择器，多用于<a>标签 -->
+* E: link 匹配所有未被点击的链接                   ` <!--a类选择器，多用于<a>标签 -->`
+* E：visited 匹配所有已被点击的链接                 `<!--a类选择器，多用于<a>标签 -->`
+* E：active 匹配鼠标已经其上按下、还没有释放的E元素   `<!--a类选择器，多用于<a>标签 -->`
+* E：hover 匹配鼠标悬停其上的E元素                   `<!--a类选择器，多用于<a>标签 -->`
 * E：focus 匹配获得当前焦点E的元素
 * E:lang(c)	匹配lang属性等于c的E元素
 * E:enabled	匹配表单中可用的元素
