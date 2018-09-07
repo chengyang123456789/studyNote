@@ -63,20 +63,20 @@
         * 2n+1, 2n, 4n-1 
         * odd, even
 ### 伪元素选择器
-选择器	含义
-E::first-line	匹配E元素内容的第一行
-E::first-letter	匹配E元素内容的第一个字母
-E::before	在E元素之前插入生成的内容
-E::after	在E元素之后插入生成的内容
-选择器优先级
-如果多条规则作用于同一个元素上，且定义的相同属性的不同值，比如
-```html
-<style>
-    #test {color: #666;}
-    p {color: #333;}
-</style>
+* 选择器	含义
+    * E::first-line	 匹配E元素内容的第一行
+    * E::first-letter	 匹配E元素内容的第一个字母
+    * E::before	 在E元素之前插入生成的内容
+    * E::after	在E元素之后插入生成的内容
+* 选择器优先级
+    * 如果多条规则作用于同一个元素上，且定义的相同属性的不同值，比如
+        ```html
+        <style>
+            #test {color: #666;}
+            p {color: #333;}
+        </style>
 
-<p id="text">Text</p>
-```
-这种场景下，p元素文本颜色应该是哪个呢？
+        <p id="text">Text</p>
+        <!-- 这种场景下，p元素文本颜色应该是哪个呢？-->
+        ```
 
