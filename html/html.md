@@ -1,9 +1,14 @@
 # DOCTYPE
-* `<! DOCTYPE html>`  文档声明
+* 文档声明
+```html
+<! DOCTYPE html>
+```
 # 标签
 # 属性
 # 注释
-* `<!-- sssssss -->`
+ ```html
+ <!-- sssssss -->
+ ```
 # 空格  空白
 1. "tab"(U+0009),"LF"(U+000A),"FF"(U+000C),and"CR"(U+000D)都是空白。
 2. 所有空白都会缩成一个空格
@@ -29,67 +34,97 @@
 
 # HTML 超文本标记语言（Hypertext Markup Language）,是一个可以用来结构化Web内容并给予其含义和目标的编码语言
 * VScode 快捷键：
-* p + tab => `<p></p>`
-* nav>ul>li =>  ```<nav>
-                    <ul>
-                        <li></li>
-                    </ul>
-                </nav>```
+* p + tab 等于如下 
+```html
+<p></p>
+```
+* nav>ul>li 等于如下  
+```html
+<nav>
+    <ul>
+         <li></li>
+    </ul>
+</nav>
+```
 
-* h1+p+div =>   ```<h1></h1>
-                <p></p>
-                <div></div>```  
+* h1+p+div 等于如下
+```html
+<h1></h1>
+<p></p>
+<div></div>
+```
 * ul>li*3
 * div.item
 * #header.itermactive
-* ul>(li>{iterm $})*3  =>   ```<ul>
-                                <li>iterm 1</li>
-                                <li>iterm 2</li>
-                                <li>iterm 3</li>
-                            </ul>```
+* ul>(li>{iterm $})*3 等如下
+```html
+<ul>
+    <li>iterm 1</li>
+    <li>iterm 2</li>
+    <li>iterm 3</li>
+</ul>
+```
 
 # HTML 标签
 * 标题
-    * <h1>一级标签</h1>
-    * <h2>二级标签</h2>
-    * <h3>三级标签</h3>
-    * <h4>四级标签</h4>
-    * <h5>五级标签</h5>
-    * <h6>六级标签</h6>
+```html
+<h1>一级标签</h1>
+<h2>二级标签</h2>
+<h3>三级标签</h3>
+<h4>四级标签</h4>
+<h5>五级标签</h5>
+<h6>六级标签</h6>
+```
 * 列表
     * 无序列表
-        * ```<ul>
+        ```html
+         <ul>
             <li></li>
-            </ul>```
+        </ul>
+        ```
 
-        * ```<nav>
+        ```html
+        <nav>
             <ul>
-            <li></li>
+                <li></li>
             </ul>
-            </nav>```
+        </nav>
+        ```
     * 有序列表
-        * ```<ol>
+        ```html
+        <ol>
             <li></li>
-            </ol>```
+        </ol>
+        ```
 * 强调,加粗
-    * `<em></em>`
-    * `<strong></strong>`
+    ```html
+    <em></em>
+    <strong></strong>
+    ```
 * 自定义列表
-    * ```<dl>
+    ```html
+    <dl>
         <dt></dt>
         <dd></dd>
-        </dl>```
+    </dl>
+    ```
 * 图片带描述
-    ```<figure>
+    ```html
+    <figure>
         <img src="..url" alt="描述" >
         <figcaption>图片的描述</figcaption>
-    </figure>```
+    </figure>
+    ```
 * 返回顶部链接
-    `<a href="#">返回页面顶部</a>`
+    ```html
+    <a href="#">返回页面顶部</a>
+    ```
 * 文档内部链接
     用于定位到文档的一部分，<a>的href要对应文档内某个元素的id（id值要唯一）
-    `<a href="#email链接">Email链接</a>`
-    `<a href="url" > 表单相关标签</a>`
+    ```html
+    <a href="#email链接">Email链接</a>
+    <a href="url" > 表单相关标签</a>
+    ```
 
 * 表 
 ```html
@@ -202,14 +237,18 @@
         ```
 
 # HTML 须知
-* `<html lang="zh-CN">`
+```html
+<html lang="zh-CN">
+```
 * 设定部分页面内容语言
 * SEO（搜索引擎优化）
 * 有助于视觉障碍人士通过读屏器阅读页面
 * 块级元素和内联元素
 * 属性
     * 布尔属性，eg.   `<input>`被添加disable属性后，就接收不到用户输入了
-        `<input type= "text disable>`
+        ```html
+        <input type= "text disable>
+        ```
     * 全局属性,eg.    id,class,style,title都是全局属性，可以被任何HTML元素使用
         hidden 可用于隐藏某个页面元素
         contenteditable 全局属性可以使元素内容变成可编辑
