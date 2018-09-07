@@ -4,9 +4,9 @@
 ## CSS应用方式
 ### 外部样式表（推荐）
 * 通过<link>引入CSS
-    ```html
-    <link rel="stylesheet" href="style.css">
-    ```
+```html
+ <link rel="stylesheet" href="style.css">
+ ```
 * 通过@import 引入样，放入css中
 ## 内部样式表
 * 将CSS放入页面的`<style>`元素中
