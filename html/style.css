@@ -1,0 +1,23 @@
+/* @import "style2.css"; */
+
+.red {
+    color:red;
+}
+.red.big{
+    font-size: 100px;
+}
+.red.big.center{
+    font-size: 80px;
+    text-align: center;
+}/* @import "style2.css"; */
+
+.red {
+    color:red;
+}
+.red.big{
+    font-size: 100px;
+}
+.red.big.center{
+    font-size: 80px;
+    text-align: center;
+}
