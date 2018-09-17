@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+    <HEADER>
+        <meta charset="utf-8">
+        <title>表格</title>
+        <style>
+            .layout{
+                margin:0 auto;
+                width: 600px;
+                
+            }
+            .Table{
+                border-collapse: collapse;
+                margin-top:30px;
+                width: 100%;
+                font-family:arial;
+                border:1px solid #ccc;
+            }
+            .Table th{
+                background-color:#4CAF50;
+                color:white;
+                padding:8px 8px;
+                font-weight:bold;
+                text-align:left;
+                
+            }
+            .Table td{
+                border-bottom: 1px solid #ccc;
+                padding:8px 8px;
+            }
+            .Table tr:nth-child(2n){
+                background-color:#f1f1f1;
+            }
+            .Table.Table2 th{
+                background-color:white;
+                color:black;
+                
+            }
+            .Table.Table2{
+                border:none;
+                
+                
+            }
+        </style>
+    </HEADER>
+    <body>
+        <div class="layout">
+            <table class="Table">
+                <tr>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Points</th>
+                </tr>
+                <tr>
+                    <td>Jill</td>
+                    <td>Smith</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>Eve</td>
+                    <td>JackSon</td>
+                    <td>94</td>
+                </tr>
+                <tr>
+                    <td>Adam</td>
+                    <td>johnson</td>
+                    <td>67</td>
+                </tr>
+                <tr>
+                    <td>Bo</td>
+                    <td>Nilsson</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>Mike</td>
+                    <td>Rose</td>
+                    <td>35</td>
+                </tr>
+            </table>
+        </div>
+        <div class="layout">
+            <table class="Table Table2">
+                    <tr>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>Points</th>
+                    </tr>
+                    <tr>
+                        <td>Jill</td>
+                        <td>Smith</td>
+                        <td>50</td>
+                    </tr>
+                    <tr>
+                        <td>Eve</td>
+                        <td>JackSon</td>
+                        <td>94</td>
+                    </tr>
+                    <tr>
+                        <td>Adam</td>
+                        <td>johnson</td>
+                        <td>67</td>
+                    </tr>
+                    <tr>
+                        <td>Bo</td>
+                        <td>Nilsson</td>
+                        <td>50</td>
+                    </tr>
+                    <tr>
+                        <td>Mike</td>
+                        <td>Rose</td>
+                        <td>35</td>
+                    </tr>
+            </table>
+        </div>
+    </body>
+</html>

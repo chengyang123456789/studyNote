@@ -77,9 +77,9 @@
 ** 块级：block,list-item,table
 ** 行内： inline,inline-table,inline-block
 * font
-** font-size: 字体大小（12px比较小  14px普通的 16px浏览器默认大小 20px标题）
-** font-family: 字体，宋体、微软雅黑、Arial
-*** 在CSS中设置字体时，直接写字体中文或英文名称浏览器都能识别，直接写中文情况下编码（GB2312、UTF-8等）不匹配时会产生乱码。保险 nm  的方式是将字体名称用Unicode来表示
+    * font-size: 字体大小（12px比较小  14px普通的 16px浏览器默认大小 20px标题）
+    * font-family: 字体，宋体、微软雅黑、Arial
+        *  在CSS中设置字体时，直接写字体中文或英文名称浏览器都能识别，直接写中文情况下编码（GB2312、UTF-8等）不匹配时会产生乱码。保险 nm  的方式是将字体名称用Unicode来表示
 *** 宋体|SimSum|\5B8B\4F53 黑体|SimHei|\9ED1\4F53 微软雅黑|Microsoft YaHei|\5FAE\8F6F\96C5\9ED1
 *** 打开控制台escape('微软雅黑'),把%u替换成\
 ** font-weight: 文字粗度，常用的就是默认值regular和粗体bold
