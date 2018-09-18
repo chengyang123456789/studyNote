@@ -1,0 +1,88 @@
+* 背景
+    * background 简写属性，作用是将背景属性设置在一个声明中
+    * background-attachment 背景图像是否固定过着随着页面的其余部分滚动
+    * background-color 设置元素的背景颜色
+    * background-image 把图片设置为背景
+    * background-position 设置背景图像的起始位置 ：默认左上角
+        * xy
+        * x%y%
+        * [top|center|bottom][left|center|right]
+    * background-repeat 设置背景图像是否及如何重复
+        * no-repeat: 背景图片在规定位置
+        * repeat-x: 图片横向重复
+        * repeat-y：图片纵向重复
+        * repeat：全部重复
+    * background-size 设置背景的大小（兼容性）
+        * 100px 100px
+        * contain
+        * cover
+    * CSS Sprite
+        * 指将不同的图片/图标合并在一张图上
+        * 使用CSS Sprite 可以减少网络请求，提高网页加载性能。
+
+* 隐藏or透明
+    * opacity：0； 透明度为0，整体
+    * visibility:hidden; 和opacity：0；类似
+    * display：none； 消失，不占用位置
+    * background-color：rgba（0，0，0，0.2）只是背景色透明
+
+* inline-block
+    * 既呈现inline特性（不占据一整行，宽度由内容宽度决定）
+    * 又呈现block特性（可设置宽高，内外边距）
+    * 缝隙问题
+        * 可以设置inline-block的父元素的font-size：0; 然后再分别设置inline-block的font-size
+
+* line-height
+    * line-height：2；所占高度是它文字本身高度的两倍
+    * line-heght：200%；所占高度是它父容器（父元素）文字高度的两倍
+    * height=line-height来垂直居中单行文本
+
+* 盒模型
+    * 使用css3新样式box-sizing
+    1. `box-sizing:content-box:` w3c标准盒模型
+    2. `box-sizing:border-box:` IE盒模型
+    ```css
+        <div style="height:200px; width:200px; border:solid 10px #333; padding:100px;"></div>
+    ```
+* 区别
+    * W3C标准中padding、border所占的空间不在width、height范围内，大家俗称的IE的盒模型width包括content尺寸+padding+border
+
+
+* 小图标网址：http://www.iconfont.cn/
+* http://www.bootcss.cn/
+* npm css sprites
+* css sprites generate
+* icon 的5种实现方式
+    * 需求
+    * image
+        * 注意事项
+            * img 的大小设置
+            * img 的vertical-align
+            * 请求次数过多
+    * CSS Sprites
+        * CSS 精灵图            
+         <!-- CSS sprite 是可以把页面上所有的图片拼在一张大图上，通过background-position定位图标的位置，浏览器解析html时就只需向服务器发送一次请求，减小请求次数。               -->
+            1. 用命令行：`sprity create build resource/*.png -s style.css`
+            2. 用在线工具： http://cn/spritegen.website-performance.org
+        * 缺点
+            1. 无法缩放
+            2. 不好修改
+    * Icon Font
+        * 把字体做成图标
+        1. 制作文字文件
+        2. 声明font-family
+            1. 使用本地链接
+            2. 使用第三方链接
+        3. 使用font-family
+            1. 使用HTML实体
+            2. 使用CSS:before 
+    * CSS Icon
+    * SVG 
+        1. img src=svg
+        2. SVG "sprites"
+
+* 那如何让页面展示一个图标呢？我们可以把图标当成文字来操作，步骤如下：
+    1. 在页面上放入该图标的 unicode 码 （可以自己创建一个）
+    2. 让该元素使用我们自定义的字体
+    3. 字体对应着我们自己创建的字体库文件
+    4. 字体库文件里有关于该 unicode 码的外形描述   
