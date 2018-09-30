@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            background:grey;
+            height:80px;
+            text-align:center;
+           
+        }
+        ul{
+            list-style:none;
+            vertical-align: middle;
+
+        }
+        a{
+            text-decoration:none;
+        }
+        .box::before{
+            content:'';
+            display:inline-block;
+            height:100%;
+            vertical-align: middle;
+        }
+        .wrap{
+            display: inline-block;
+            vertical-align: middle;
+        }
+        /* .wrap{
+            text-align:center;
+            vertical-align:middle;
+            padding:30px;
+        } */
+        .wrap li{
+            background:red;
+            border:1px solid red;
+            border-radius:3px;
+            color:white;
+            display:inline-block;
+            vertical-align: middle;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul class="wrap">
+            <li><a>按钮1</a></li>
+            <li><a>按钮2</a></li>
+            <li><a>按钮3</a></li>
+        </ul>
+    </div>
+</body>
+</html>
