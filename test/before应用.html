@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style>
+  .tooltip,.bubble {
+    position:relative;
+    padding:10px;
+    border-radius:3px;
+    background:#fff;
+    border:1px solid #000;
+    display:inline-block;
+}  
+  .tooltip .caret,
+  .bubble:before{
+    width:10px;
+    height:10px;
+    border-left:1px solid #000;
+    border-top:1px solid #000;
+    background:#fff;
+    display:inline-block;
+    transform: rotateZ(45deg);
+    position:absolute; 
+    top:-6px;  
+  }
+  .bubble:before{
+  content: ' '
+    
+  }
+    
+    </style>
+</head>
+<body>
+<div class="tooltip">
+  <span class="caret"></span>
+  hi,这里是饥人谷
+</div>
+<div class="bubble">hi,这里是饥人谷</div>
+
+  
+
+</body>
+</html>
