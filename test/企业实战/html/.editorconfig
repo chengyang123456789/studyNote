@@ -1,0 +1,10 @@
+# editorconfig.rog
+root = true
+
+[*]
+charset = utf-8
+end-of-line = lf
+indent-sise = 2
+inedent-style = space
+insert-final-newline = true
+trim-trailing-whitespace = true

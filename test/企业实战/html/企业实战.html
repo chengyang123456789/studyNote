@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Game Of Thrones</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_868455_o10jnmx5hlj.css">
+    <style>
+     header {
+         height:100%;
+         min-height:600px;
+         background:#000 url(http://img01.e23.cn/2018/0610/20180610113003326.jpg) center center no-repeat;
+         background-size:cover;
+         position: relative;
+     }
+     header::before {
+         content:'';
+         display: block;
+         position:absolute;
+         left:0;
+         top:0;
+         bottom:0;
+         right:0;
+         background:rgba(255,255,255,0.3);
+     }
+     .logo { 
+         color:#f7ba3e;
+         font-size:32px;
+         float:left;
+         margin-top:10px;
+     }
+     header .nav {
+         float:right;
+
+     }
+     header ul>li {
+         float:left;
+         margin:10px;
+     }
+     header .nav a {
+         color:#fff;
+         font-size:16px;
+         display:inline-block;
+         padding:5px;
+         border-radius:4px;
+     }
+     header .nav a:hover {
+         background:#f7ba3e;
+        
+     }
+     header .introduction {
+         color:#fff;
+         position:absolute;
+         top:50%;
+         left:50%;
+         transform:translate(-50%,-50%);
+         text-align: center;
+     }
+     header .introduction h1{
+         font-size:32px;
+     }
+     header .introduction h2{
+         font-size:46px;
+         margin-top:20px;
+     }
+     header .introduction .button{
+         margin-top:20px;
+     }
+     section{
+         margin-top:30px;
+         text-align: center;
+
+     }
+     section>h2{
+         font-size:40px;
+
+     }
+
+     section>p{
+         margin-top:10px;
+     }
+     section>ul .iconfont{
+         font-size:60px;
+         color:red;
+     }
+     section .family-intro>li{
+         float:left;
+         width:calc(33.33%);
+         padding:10px 20px;
+     }
+     section>ul p{
+         margin-top:10px;
+     }
+     section .family figure{
+         width:calc(33.33% - 20px);
+         height:240px;
+         margin:10px;
+         float:left;
+
+     }
+     section .family a{
+         display:block;
+         height:180px;
+         width:100%;
+     }
+     section .family img{
+         width:100%;
+         height:100%;
+     }
+     section .family figcaption{
+         font-size:18px;
+         font-weight:100%;
+         margin-top:10px;
+     }
+     section .family p{
+         color:#666;
+         margin-top:10px;
+     }
+     section .timeline > li::after {
+        content:'';
+        display: block;
+        clear: both;
+     }
+     section .timeline > li {
+        margin-top:40px;
+        position: relative;
+     }
+     section .timeline > li:nth-child(odd) {
+         
+         padding-right:calc(50% - 50px);
+         text-align: right;
+     }
+     section .timeline img{
+         width:100px;
+         height:100px;
+         border-radius:50%;
+         border:2px solid lightblue;
+     }
+     section .timeline .img{
+         width:100px;
+         display: block;
+         height:100px;
+         border-radius:50%;
+         border:2px solid lightblue;
+         text-align: center;
+         padding-top:10px;
+         font-size: 12px;
+     }
+     section .timeline > li:nth-child(odd) dl{
+         margin-right:120px;
+     }
+     section .timeline > li:nth-child(odd) img{
+         float:right;
+     }
+     section .timeline > li:nth-child(even){
+         padding-left:calc(50% - 50px);
+         text-align: left;
+         
+     }
+     section .timeline > li:nth-child(even) dl{
+         margin-left:120px;
+     }
+     section .timeline > li:nth-child(even) img{
+         float:left;
+     }
+     section .timeline > dt {
+         font-size:16px;
+         font-weight:bold;
+     }
+     section .timeline dd:nth-of-type(1){
+         color:#666;
+     }
+     section .timeline li::before{
+         content:'';
+         position: absolute;
+         left:50%;
+         top:100%;
+         margin-left: 0px;
+         display: inline-block;
+         height:42px;
+         width:4px;
+         background-color: lightblue;
+     }
+     section .timeline li:last-child::before{
+         height:0;
+     }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar layout clearfix">
+            <a class="logo" href="#" >Game Of Thrones</a>
+            <ul class="nav">
+                <li><a href="#">SERVICES</a></li>
+                <li><a href="#">FAMILY</a></li>
+                <li><a href="#">CHARACTER</a></li>
+                <li><a href="#">TEAM</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+        </div>
+        <div class="introduction layout">
+                <h1>WINTER IS COMMING</h1>
+                <h2>ALONE WOLF DEATH, WOLVES LIVE. </h2>
+                <a class="button" href="#">Tell me more</a>
+        </div>
+
+    </header>
+    <main>
+        <section>
+            <h2>家族介绍</h2>
+            <p>关于各家族的介绍</p>
+            <ul class="family-intro clearfix">
+                <li>
+                    <span class="iconfont icon-family1"></span>
+                    <h3>史塔克家族</h3>
+                    <p>史塔克家族（House Stark）是北境最古老、最显赫也是最重要的家族，他们的历史可以追溯到“筑城者”布兰登（Bran the Builder）——一名英雄纪元（Age of Heroes）时期的传奇人物，他是临冬城的建立者，还和巨人族一起协助建立了绝境长城以防御异鬼的入侵。</p>
+                </li>
+                <li>
+                    <span class="iconfont icon-family2"></span>
+                    <h3>兰尼斯特家族</h3>
+                    <p>兰尼斯特家族在血龙狂舞和黑火叛乱期间效忠于伊耿二世和戴伦二世，虽然他们小众的对象最后都赢得了胜利，但是在战斗的过程中却吃了很多屈辱的败仗。</p>
+                </li>
+                <li>
+                    <span class="iconfont icon-family3"></span>
+                    <h3>拜拉席恩家族</h3>
+                    <p>拜拉席恩家族是七国中最年轻的大家族，历史可追溯至三百年前的家族建立者奥里斯·拜拉席恩，他是征服者伊耿手下最得力的统帅，谣传他更是伊耿的私生子兄弟。</p>
+                </li>
+            </ul>
+        </section>
+        <section>
+                <h2>FAMILY</h2>
+                <p>015年，第67届艾美奖中《权力的游戏》破纪录斩获12项大奖，包揽了最佳剧情、导演、编剧、男配等大奖 [2]  。2016年，被选为2016美国电影学会十佳剧集 [3]  。2018年，获得第70届艾美奖最佳剧集奖 [4]  。</p>
+                <div class="family clearfix">
+                    <figure>
+                        <a href="#"><img src="http://img.mp.itc.cn/upload/20170718/e83c9625c8af447781d63be64249d219_th.jpg" alt="龙母"></a>
+                        <figcaption>winterfell:house starks</figcaption>
+                        <p>winter is coming</p>
+                    </figure>
+                
+                    <figure>
+                            <a href="#"><img src="http://img.mp.itc.cn/upload/20170718/e83c9625c8af447781d63be64249d219_th.jpg" alt="龙母"></a>
+                            <figcaption>winterfell:house starks</figcaption>
+                            <p>winter is coming</p>
+                    </figure>
+                
+                
+                    <figure>
+                            <a href="#"><img src="http://img.mp.itc.cn/upload/20170718/e83c9625c8af447781d63be64249d219_th.jpg" alt="龙母"></a>
+                            <figcaption>winterfell:house starks</figcaption>
+                            <p>winter is coming</p>
+                    </figure>
+                
+                    <figure>
+                            <a href="#"><img src="http://img.mp.itc.cn/upload/20170718/e83c9625c8af447781d63be64249d219_th.jpg" alt="龙母"></a>
+                            <figcaption>winterfell:house starks</figcaption>
+                            <p>winter is coming</p>
+                    </figure>
+                
+                    <figure>
+                            <a href="#"><img src="http://img.mp.itc.cn/upload/20170718/e83c9625c8af447781d63be64249d219_th.jpg" alt="龙母"></a>
+                            <figcaption>winterfell:house starks</figcaption>
+                            <p>winter is coming</p>
+                    </figure>
+                
+                    <figure>
+                            <a href="#"><img src="http://img.mp.itc.cn/upload/20170718/e83c9625c8af447781d63be64249d219_th.jpg" alt="龙母"></a>
+                            <figcaption>winterfell:house starks</figcaption>
+                            <p>winter is coming</p>
+                    </figure>
+                </div>
+        </section>
+        <section>
+            <h2>Timeline</h2>
+            <p>故事的发展曲线</p>
+            <ul class="timeline">
+                <li>
+                    <img src="http://img.mp.sohu.com/upload/20170810/5c75d87861d642c498bf99771001839a_th.png" alt="">                    
+                    <dl>
+                        <dt>April 2011</dt>     
+                        <dd>Game of Thrones Season 1</dd>
+                        <dd>lorem ipsum dolor sit amet,consectetur adipisicing elit. Sun ut voluptatum eius sapiente,totam reiciendis temporibus quiquibusdam,recusandae sit vero unde,sed,includnt et quo dolore laudantium consectetur!</dd>
+                    </dl>
+                </li>
+                <li>
+                    <img src="http://5b0988e595225.cdn.sohucs.com/images/20170719/712dd2a116fb4f83b5e90e7974dfc2d9.jpeg" alt="">                   
+                    <dl>
+                        <dt>April 2011</dt>     
+                        <dd>Game of Thrones Season 1</dd>
+                        <dd>lorem ipsum dolor sit amet,consectetur adipisicing elit. Sun ut voluptatum eius sapiente,totam reiciendis temporibus quiquibusdam,recusandae sit vero unde,sed,includnt et quo dolore laudantium consectetur!</dd>
+                    </dl>
+                </li>
+                <li>
+                    <img src="http://img1.gtimg.com/ent/pics/hv1/121/81/1817/118171201.jpg" alt="">           
+                    <dl>
+                        <dt>April 2011</dt>     
+                        <dd>Game of Thrones Season 1</dd>
+                        <dd>lorem ipsum dolor sit amet,consectetur adipisicing elit. Sun ut voluptatum eius sapiente,totam reiciendis temporibus quiquibusdam,recusandae sit vero unde,sed,includnt et quo dolore laudantium consectetur!</dd>
+                    </dl>
+                </li>
+                <li>
+                    <img src="http://n1.itc.cn/img8/wb/recom/2016/06/28/146712416425280522.JPEG" alt="">
+                    <dl>
+                        <dt>April 2011</dt>     
+                        <dd>Game of Thrones Season 1</dd>
+                        <dd>lorem ipsum dolor sit amet,consectetur adipisicing elit. Sun ut voluptatum eius sapiente,totam reiciendis temporibus quiquibusdam,recusandae sit vero unde,sed,includnt et quo dolore laudantium consectetur!</dd>
+                    </dl>
+                </li>
+                <li>
+                    <img src="http://n.sinaimg.cn/ent/transform/167/w577h390/20180920/XC_6-hkhfqnt1078560.jpg" alt="">
+                    <dl>
+                        <dt>April 2011</dt>     
+                        <dd>Game of Thrones Season 1</dd>
+                        <dd>lorem ipsum dolor sit amet,consectetur adipisicing elit. Sun ut voluptatum eius sapiente,totam reiciendis temporibus quiquibusdam,recusandae sit vero unde,sed,includnt et quo dolore laudantium consectetur!</dd>
+                    </dl>
+                </li>
+                    <!-- <div class="detail">
+                        <h3>April 2011</h3>
+                        <h4>Game of Thrones Season 1</h4>
+                        <p>lorem ipsum dolor sit amet,consectetur adipisicing elit. Sun ut voluptatum eius sapiente,totam reiciendis temporibus quiquibusdam,recusandae sit vero unde,sed,includnt et quo dolore laudantium consectetur!</p>
+                    </div> -->
+                </li>
+                <li>
+                    <span class="img">STAY TUNED FOR NEXT SEASON!</span>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <footer></footer>
+</body>
+</html>

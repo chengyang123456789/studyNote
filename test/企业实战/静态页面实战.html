@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="html/css/common.css">
+    <style>
+
+        header{
+            height:100%;
+            min-height:600px;
+            background:#000 url(http://n5.cmsfile.pg0.cn/group1/M00/7B/11/Cgqg11hgVd6AY4CWAACVu86ySg0729.jpg?enable=&w=550&h=720&cut=) center center no-repeat;
+            background-size:cover;
+            background-position:30% 35%;
+            
+        }
+        header .navbar > a {
+            color:#f7ba3e;
+            font-size:20px;
+            float:left;
+            margin:20px 10px;
+        }
+        header .navbar > ul {
+            float:right;
+            margin:20px 100px;
+            
+        }
+        header .navbar  a {
+            color:white;
+        }
+        header .navbar > ul li{
+            float:left;
+            margin:0 15px;
+        
+        }
+        header .navbar > ul li>a:hover{
+            color:#f7ba3e;
+        }
+        header > div{
+            text-align:center;
+            color:white;
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+        }
+        header > div h2{
+            font-size:30px;
+            font-family:Arial;
+            
+        }
+        header > div h3{
+            font-size:40px;
+            font-family:Montserrat;
+            font-weight:700;
+            margin-bottom:50px;
+            
+        }
+        .layout {
+            text-align: center;
+        }
+        .layout > .title {
+            margin-top:100px;
+            margin-bottom:40px;
+        }
+        .layout > .title > h2 {
+            font-size:40px;
+            margin:20px;
+        }
+        .layout > .title > p {
+            font-style: italic;
+            font-size: 16px;
+            font-weight:400;
+        }
+
+        @font-face {font-family: "iconfont";
+        src: url('iconfont.eot?t=1539570898394'); /* IE9*/
+        src: url('iconfont.eot?t=1539570898394#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('data:application/x-font-woff;charset=utf-8;base64,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') format('woff'),
+        url('iconfont.ttf?t=1539570898394') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+        url('iconfont.svg?t=1539570898394#iconfont') format('svg'); /* iOS 4.1- */
+        }
+
+        .iconfont {
+        font-family:"iconfont" !important;
+        font-size:16px;
+        font-style:normal;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        }
+
+        .icon-shuiguo:before { content: "\e882"; }
+
+        .icon-ganxie:before { content: "\e88b"; }
+
+        .icon-shoucangxiao:before { content: "\e8bc"; }
+
+        .icon-checkboxweixuanzhongda:before { content: "\e933"; }
+        
+        /* .circle{
+           
+            display:inline-block;
+            width:100px;
+            height:100px;
+            border-radius: 50%;
+            background-color:#f7ba3e;
+        }
+        
+        .layout .content {
+            position:relative;
+        }
+        .iconfont {
+            font-size:60px;
+            position:absolute;
+            left:20px;            
+            
+        }
+        .layout .content li{
+            display:inline-block;
+            margin:30px;
+        } */
+        .iconfont {
+            font-size:60px;
+            color:white;
+            width:100px;
+            height:100px;
+            background:#f7ba3e;
+            border-radius: 50%;
+            
+            
+        }
+        
+
+        
+        
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar clearfix">
+            <a href="#">Start Project</a>
+            <ul>
+                <li><a href="#">SERVICES</a></li>
+                <li><a href="#">PORTFOLIO</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">TEAM</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+        </nav>
+        <div>
+            <h2>Welcome To Our Studio!</h2>
+            <h3>IT'S NICE TO MEET TO YOU</h3>
+            <a class="button" href="#">TELL ME MORE</a>
+        </div>
+    </header>
+    <div class="layout">
+        <div class="title">
+            <h2>SERVICES</h2>
+            <p>Lorem ipsum dolor sit amet consectetur</p>
+        </div>
+        <ul class="content">
+            <li>
+                
+                <span class="iconfont">&#xe8bc;</span>
+            </li>
+            <li>  
+               
+                <span class="iconfont">&#xe88b;</span>
+            </li>
+            <li>
+                
+                <span class="iconfont">&#xe882;</span>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
