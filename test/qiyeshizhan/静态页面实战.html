@@ -99,49 +99,48 @@
 
         .icon-checkboxweixuanzhongda:before { content: "\e933"; }
         
-        /* .circle{
-           
-            display:inline-block;
-            width:100px;
-            height:100px;
-            border-radius: 50%;
-            background-color:#f7ba3e;
-        }
-        
-        .layout .content {
-            position:relative;
-        }
         .iconfont {
-            font-size:60px;
-            position:absolute;
-            left:20px;            
-            
-        }
-        .layout .content li{
             display:inline-block;
-            margin:30px;
-        } */
-        .iconfont {
             font-size:60px;
             color:white;
-            width:500px;
-            height:500px;
+            width:100px;
+            height:100px;
             background:#f7ba3e;
-            border-radius: 50%;
-            
-            
+            border-radius: 50%; 
         }
-        
-
-        
-        
+        .layout > ul li{
+            display:inline-block;
+            float:left;
+            width:calc(33.33% - 20px);
+            margin:30px 10px;
+        }
+        .layout > ul h4{
+            font-size:18px;
+            font-weight:700;
+        }
+        .layout > ul p{
+            font-size: 16px;
+            list-style: height 1.75em;
+            margin:20px  10px;
+        }
+        img{
+            display:inline-block;
+            width:100%; 
+        }
+        .content figcaption p{
+            margin:0;
+        }
+        .content a:hover{
+            background-color:#f7ba3e;
+            opacity:0.7;
+        }
     </style>
 </head>
 <body>
     <header>
-        <nav class="navbar clearfix">
+        <nav class="navbar ">
             <a href="#">Start Project</a>
-            <ul>
+            <ul class="clearfix">
                 <li><a href="#">SERVICES</a></li>
                 <li><a href="#">PORTFOLIO</a></li>
                 <li><a href="#">ABOUT</a></li>
@@ -155,25 +154,90 @@
             <a class="button" href="#">TELL ME MORE</a>
         </div>
     </header>
-    <div class="layout">
+    <section class="layout">
         <div class="title">
             <h2>SERVICES</h2>
             <p>Lorem ipsum dolor sit amet consectetur</p>
         </div>
-        <ul class="content">
+        <ul class="content clearfix">
             <li>
-                
                 <span class="iconfont">&#xe8bc;</span>
+                <h4>E-Commerce</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Minima maxime quam architecto quo inventore harum exmagni,dicta impedit.</p>
             </li>
             <li>  
-               
                 <span class="iconfont">&#xe88b;</span>
+                <h4>Responsive Design</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Minima maxime quam architecto quo inventore harum exmagni,dicta impedit.</p>
             </li>
-            <li>
-                
+            <li> 
                 <span class="iconfont">&#xe882;</span>
+                <h4>Web Security</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Minima maxime quam architecto quo inventore harum exmagni,dicta impedit.</p>
             </li>
         </ul>
-    </div>
+    </section>
+    <section class="layout">
+            <div class="title">
+                <h2>PORTFOLIO</h2>
+                <p>Lorem ipsum dolor sit amet consectetur</p>
+            </div>
+            <ul class="content clearfix">
+                <li>
+                    <figure >
+                        <a href="#"><img src="http://img4q.duitang.com/uploads/item/201505/09/20150509152735_2S3VR.jpeg" alt=""></a>
+                        <figcaption>
+                            <h4>E-Commerce</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Minima maxime quam architecto quo inventore harum exmagni,dicta impedit.</p>
+                        </figcaption>
+                    </figure> 
+                </li>
+                <li>  
+                    <figure>
+                        <a href="#"><img src="http://img4q.duitang.com/uploads/item/201505/09/20150509152735_2S3VR.jpeg" alt=""></a>
+                        <figcaption>
+                            <h4>E-Commerce</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Minima maxime quam architecto quo inventore harum exmagni,dicta impedit.</p>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li> 
+                    <figure>
+                        <a href="#"><img src="http://img4q.duitang.com/uploads/item/201505/09/20150509152735_2S3VR.jpeg" alt=""></a>
+                        <figcaption>
+                            <h4>E-Commerce</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Minima maxime quam architecto quo inventore harum exmagni,dicta impedit.</p>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li> 
+                    <figure>
+                        <a href="#"><img src="http://img4q.duitang.com/uploads/item/201505/09/20150509152735_2S3VR.jpeg" alt=""></a>
+                        <figcaption>
+                            <h4>E-Commerce</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Minima maxime quam architecto quo inventore harum exmagni,dicta impedit.</p>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li> 
+                    <figure>
+                        <a href="#"><img src="http://img4q.duitang.com/uploads/item/201505/09/20150509152735_2S3VR.jpeg" alt=""></a>
+                        <figcaption>
+                            <h4>E-Commerce</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Minima maxime quam architecto quo inventore harum exmagni,dicta impedit.</p>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li> 
+                    <figure>
+                        <a href="#"><img src="http://img4q.duitang.com/uploads/item/201505/09/20150509152735_2S3VR.jpeg" alt=""></a>
+                        <figcaption>
+                            <h4>E-Commerce</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Minima maxime quam architecto quo inventore harum exmagni,dicta impedit.</p>
+                        </figcaption>
+                    </figure>
+                </li>
+            </ul>
+    </section>
 </body>
 </html>
