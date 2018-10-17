@@ -181,7 +181,13 @@
             display:flex;
         }
         .about li{
-            border:1px solid black;          
+              border:1px solid black;
+            position:relative;        
+        }
+        .about li:before{
+            content:' ';
+            display:block;
+            clear:both;
         }
         .about li img{
             width:156px;
@@ -191,43 +197,57 @@
             vertical-align: middle;
             
         }
-        /* .about li img:nth-child(odd){
+        section .about > li{
+            margin-top:40px;
+        }
+        .about > li:nth-child(odd){
+            padding-right:calc(50% - 78px);
+            text-align:right;
+        }
+        .about .detail:nth-of-type(2n-1){
+            margin-right:180px; 
+        }
+        .about li:nth-child(odd) img{
             float:right;
         }
-        .about li:nth-child(odd){
-            margin-right:calc(50% - 78px);
-            text-align:right;
-        } 
-        .about li:nth-child(even){
+        .about li:nth-child(2n){
+            padding-left:calc(50% - 78px);
+            text-align: left;
+        }
+        .about .detail:nth-of-type(2n-1){
+            margin-left:180px;
+        }
+        .about li:nth-child(even) img{
             float:left;
         }
-        .about li:nth-child(even){
-            margin-left:calc(50% - 78px);
-            text-align:right;
-        } */
-      section .about > li{
-          margin-top:40px;
-      }
-      .about > li:nth-child(odd){
-          padding-right:calc(50% - 78px);
-          text-align:right;
-      }
-      .about .detail:nth-of-type(2n-1){
-          margin-right:180px; 
-      }
-      .about li:nth-child(odd) img{
-          float:right;
-      }
-      .about li:nth-child(2n){
-          padding-left:calc(50% - 78px);
-          text-align: left;
-      }
-      .about .detail:nth-of-type(2n){
-          margin-left:180px;
-      }
-      .about li:nth-child(2n) img{
-          float:left;
-      }
+        .about li:nth-child(5){
+            text-align: center;
+        }
+        .about span{
+            float:right;
+            height:156px;
+            width:156px;
+            border:4px solid #f1f1f1;
+            border-radius: 50%;
+            background-color:#f7ba3e;
+            padding:50px 0;
+            font-weight:700;
+            color:white;
+            font-size: 18px;
+            line-height:26px;
+            
+        }
+        .about li:after{
+            content:'';
+            display: inline-block;
+            width:8px;
+            height:100px;
+            background-color:#f1f1f1;
+            position:absolute;
+            top:75%;
+            left:calc(50% - 4px);
+        }
+        
     </style>
 </head>
 <body>
@@ -343,7 +363,7 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
                 </div>
             </li>
-            <li>
+            <li >
                 <img src="http://img17.3lian.com/d/file/201702/16/e442ae6a1ab65033db1c0f2bbe3116d5.jpg" alt="">
                  <div class="detail">
                     <h4>JULY 2014</h4>
@@ -368,7 +388,8 @@
                 </div>
             </li>
             <li>
-                <img src="http://img17.3lian.com/d/file/201703/14/93e96e7bf7a6b1c615cf735e1bf0100d.jpg" alt="">
+                <!-- <img src="http://img17.3lian.com/d/file/201703/14/93e96e7bf7a6b1c615cf735e1bf0100d.jpg" alt=""> -->
+                <span>BE PART OF OUR STORY!</span>
             </li>
         </ul>
     </section>
