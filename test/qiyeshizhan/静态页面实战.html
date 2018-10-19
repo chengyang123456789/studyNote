@@ -60,6 +60,7 @@
         }
         .layout {
             text-align: center;
+            margin-bottom:140px;
         }
         .layout > .title {
             margin-top:100px;
@@ -182,7 +183,7 @@
             justify-content: center;
             font-size:40px;
             color:#fff;
-            background:rgba(254, 209, 54, .8);
+            background:rgba(255, 255, 0, 0.8);
             
         }
         .box a:hover::after{
@@ -262,6 +263,103 @@
         .about li:last-of-type::after{
             height:0;
         }
+        .team{
+            padding:0;
+            
+        }
+        .team figure{
+            margin:0;
+            display: inline-block;
+            width:calc(33.33% - 7px);
+            height:350px;
+            
+        }
+        .team figure img{
+            display: inline-block;
+            width:230px;
+            height:230px;
+            border-radius: 50%;
+            border:5px solid white;
+        }
+        
+        .team > figure h4{
+            font-size: 18px;
+            font-weight: 700;
+            padding:10px;
+        }
+        .team > figure p{
+            font-size:14px;
+            line-height:1.75em;
+        }
+
+                
+        @font-face {font-family: "iconfont1";
+        src: url('iconfont.eot?t=1539930220799'); /* IE9*/
+        src: url('iconfont.eot?t=1539930220799#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('data:application/x-font-woff;charset=utf-8;base64,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') format('woff'),
+        url('iconfont.ttf?t=1539930220799') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+        url('iconfont.svg?t=1539930220799#iconfont') format('svg'); /* iOS 4.1- */
+        }
+
+        .iconfont1 {
+        font-family:"iconfont1" !important;
+        font-size:16px;
+        font-style:normal;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        }
+
+        .icon-666:before { content: "\e63a"; }
+
+        .icon-twitter:before { content: "\eb2a"; }
+
+        .icon-qq:before { content: "\e600"; }
+        
+        .iconfont1 {
+            font-size:20px;
+            background-color:rgb(56, 50, 50);
+            color:white;
+            display: inline-block;
+            width:50px;
+            height:50px;
+            border-radius:50%;
+            text-align: center;
+            padding:10px ; 
+            margin:10px 5px;
+        }
+
+        .team-footer {
+            width:750px;
+            height:50px;
+            color:#777;
+            font-size: 16px;
+            text-align: center;
+            margin:0 auto;
+            margin-top:30px;
+            margin-top:50px;
+        }   
+        .team figcaption a {
+            position:relative;
+            display: inline-block;
+            
+            
+        }
+        .team figcaption a:after{
+            content:'';
+            position:absolute;
+            width:100%;
+            height:100%;
+            border-radius: 50%;
+            top:0;
+            left:0; 
+            display:none;
+            align-items:center;
+            justify-content: center;
+            background:rgba(255, 255, 0, 0.8);
+        }
+        .team figcaption a:hover:after{
+            display:flex;
+        } 
         
     </style>
 </head>
@@ -408,5 +506,50 @@
             </li>
         </ul>
     </section>
+    <section class="layout">
+            <div class="title">
+                <h2>OUR AMAZING TEAM</h2>
+                <p>Lorem ipsum dolor sit amet consectetur</p>
+            </div>
+            <div class="team">
+                <figure>
+                    <img src="http://img2.imgtn.bdimg.com/it/u=1434440357,1188069219&fm=26&gp=0.jpg" alt="">
+                    <figcaption>
+                        <h4>赵丽颖</h4>
+                        <p>实力演员</p>
+                        <a class="iconfont1" href="#">&#xe600;</a>
+                        <a class="iconfont1" href="#">&#xeb2a;</a>
+                        <a class="iconfont1" href="#">&#xe63a;</a>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="http://img0.imgtn.bdimg.com/it/u=1846697532,948329706&fm=26&gp=0.jpg " alt="">
+                    <figcaption>
+                        <h4>赵美女</h4>
+                        <p>天生卖萌</p>
+                        <a class="iconfont1" href="#">&#xe600;</a>
+                        <a class="iconfont1" href="#">&#xeb2a;</a>
+                        <a class="iconfont1" href="#">&#xe63a;</a>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="http://img4.imgtn.bdimg.com/it/u=1787157084,416409544&fm=11&gp=0.jpg" alt="">
+                    <figcaption>
+                        <h4>小天仙</h4>
+                        <p>霸道总裁</p>
+                        <a class="iconfont1" href="#">&#xe600;</a>
+                        <a class="iconfont1" href="#">&#xeb2a;</a>
+                        <a class="iconfont1" href="#">&#xe63a;</a>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="team-footer">Lorem ipsum dolor sit amet consectetur adipisicing elit.Minima maxime quam architecto quo inventore harum exmagni,dicta impedit.</div>
+        </section>
+        <section class="aside">
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </section>
 </body>
 </html>
