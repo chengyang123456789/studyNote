@@ -116,11 +116,11 @@
     text-transform:upper;/* 字母转换成大写*/
     word-spacing: 30px;
 ```
-* letter-spacing：字母间隔修改的是字符或字母之间的间隔
+* letter-space：字母间隔修改的是字符或字母之间的间隔
 * 单行文本溢出加减
 ```css
     .card > h3{
-        white-spacing:nowrap;
+        white-space:nowrap;
         overflow:hidden;
         text-overflow:ellipsis;
     }

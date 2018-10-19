@@ -379,16 +379,17 @@
         }
         .aside{
             width:100%;
-            height:150px;        
+            height:150px;   
+            text-align: center;     
         }
         .aside .container{
             margin:0 auto;
-            background-color:rgb(129, 127, 127);
+            background-color:white;
         }
         .iconfont2 {
             float:left;
             font-size: 50px;
-            color:white;            
+            color:rgb(73, 70, 70);            
             width:calc(20%);
             height:150px;
             padding:30px 50px;                  
@@ -401,7 +402,8 @@
         }
         .contact{
             background:#222 url(http://img3.imgtn.bdimg.com/it/u=3052460980,1282853223&fm=26&gp=0.jpg)     no-repeat;
-            background-size:cover;
+            background-size:100%100%;
+            margin-bottom:0;
             
         }
         .contact > .title{
@@ -441,16 +443,8 @@
             
            
         }
-        /* .message >li:nth-last-of-type(1){
-            float:right;
-            position:absolute;
-            top:0;
-            right:0;
-            width:555px;
-            height:206px;
-            
-        } */
-        .message >li textarea{
+        
+        .message >li:last-child{
             float:right;
             position:absolute;
             top:0;
@@ -458,6 +452,61 @@
             width:555px;
             height:206px;  
             border-radius: 3px;
+        }
+        .message > li > textarea{
+            border:0;
+            width:100%;
+            height:100%;
+            border-radius: 4px;
+
+        }
+        .contact .button{
+            width:200px;
+            height:60px;
+            padding:20px;
+            margin-bottom:120px;
+        }
+        .contact .button:hover{
+            width:200px;
+            height:60px;
+            padding:20px;
+            margin-bottom:100px;
+            background:rgba(255, 255, 0, 0.692);
+        }
+        .page-footer{
+            text-align: center;
+            margin:0 auto;
+            height:90px;
+        }
+        .page-footer span{
+            display: inline-block;
+            width:calc(33.33% - 30px);
+        }
+        .page-footer span:last-child a{
+            color:#f7ba3e;
+            padding:5px;
+        }
+        .page-footer span:last-child a:hover{
+            text-decoration:underline;
+        }
+        .page-footer span:nth-child(2) a{
+            position: relative;
+        }
+        .page-footer span:nth-child(2) a:after{
+            content:'';
+            position: absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            border-radius: 50%;
+            display:none;
+            align-items:center;
+            justify-content: center;
+            background:rgba(255, 255, 0, 0.8);
+        }
+        .page-footer span:nth-child(2) a:hover:after{
+            display: flex;
         }
     </style>
 </head>
@@ -661,6 +710,19 @@
                     <li><input type="text" placeholder="your phone"></li>
                     <li><textarea name="emali" id="email" cols="30" rows="10" placeholder="your message"></textarea></li>
                 </ul>
+                <a class="button" href="#">SEND MESSAGE</a>
         </section>
+        <div class="page-footer">
+            <span >Copyright © Your Website 2018</span>
+            <span>
+                <a class="iconfont1" href="#">&#xe600;</a>
+                <a class="iconfont1" href="#">&#xeb2a;</a>
+                <a class="iconfont1" href="#">&#xe63a;</a>
+            </span>
+            <span>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+            </span>
+        </div>
 </body>
 </html>
