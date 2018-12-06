@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>demo3</title>
+</head>
+<body>
+    <ul class="ct">
+        <li>这里是</li>
+        <li>饥人谷</li>
+        <li>前端14班</li>
+    </ul>
+    <script>
+        var $li = document.querySelectorAll('li');
+        for(var i=0;i<$li.length;i++){
+            $li[i].onclick=function(){
+                
+                console.log(this.innerText);
+            }
+        }
+    </script>
+</body>
+</html>

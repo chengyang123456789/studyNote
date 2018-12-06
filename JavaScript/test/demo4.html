@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .ct{
+        padding:10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .active{
+        color:white;
+        background-color: black;
+    }
+    </style>
+</head>
+<body>
+    <div class="ct">
+        <h1>hello</h1>
+        <p>jirengu</p>
+    </div>
+    <button class="add">add</button>
+    <button class="remove">remove</button>
+    <button class="toggle1">toggle1</button>
+    <button class="toggle2">toggle2</button>
+    <script>
+        var add = document.querySelector('.add');
+        var remove = document.querySelector('.remove');
+        var toggle1 = document.querySelector('.toggle1');
+        var toggle2 = document.querySelector('.toggle2');
+         add.onclick=function(){
+        
+        //     document.querySelector('.ct').style.background="black";
+            document.querySelector('.ct').classList.add("active");
+         }
+         remove.onclick=function(){
+            document.querySelector('.ct').classList.remove("active");
+         }
+        toggle1.onclick=function(){
+            document.querySelector('.ct').classList.toggle("active");
+        }
+        toggle2.onclick=function(){
+            document.querySelector('.ct').classList.toggle("active");
+        }
+    </script>
+</body>
+</html>

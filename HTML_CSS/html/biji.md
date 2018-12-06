@@ -14,6 +14,8 @@
 * history 查看历史输入的命令
 * 按上键可以查看上一次输入的命令
 * cd .. 返回上一层
+* npm i -g http-server
+* http-server -c-1
 * 代补充
 ## git 命令
 * git clone 下载

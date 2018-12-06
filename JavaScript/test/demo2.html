@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="ct">
+            <li>这里是</li>
+            <li>饥人谷</li>
+            <li>任务班</li>
+    </ul>
+    <input class="ipt-add-content" placeholder="添加内容"/>
+    <button id="btn-add-start">开头添加</button>
+    <button id="btn-add-end">结尾添加</button>
+
+
+    <script>
+
+        var beginning = document.getElementById("btn-add-start");
+        var endding = document.getElementById("btn-add-end");
+        var  li = document.querySelectorAll("li");
+        var ct=document.getElementsByClassName("ct");
+        var $input = document.getElementsByClassName("ipt-add-content")[0];
+        
+
+        beginning.onclick = function(){
+            var node = document.createElement('li')
+            var val = $input.value;
+            var textNode = document.createTextNode(val);
+            node.appendChild(textNode);
+            ct[0].insertBefore(node,ct[0].childNodes[0]);
+            node.onclick = function (){
+              console.log(node.innerText);
+        }
+        endding.onclick = function(){
+            var node = document.createElement('li')
+            var val = $input.value;
+            var textNode = document.createTextNode(val);
+            node.appendChild(textNode);
+            document.getElementsByClassName("ct")[0].appendChild(node);
+            node.onclick = function (){
+              console.log(node.innerText);
+        }
+        
+        for(var i=0;i<li.length;i++){
+            li[i].onclick=function (){
+                console.log(this.innerHTML);
+            }
+        }
+        // 方法二
+        //   ct.onclick = function(e) {
+        //   if(e.target.tagName.toLowerCase() === 'li') {
+        //     console.log(e.target.innerText)
+        //   }
+        // }
+       
+
+        
+        </script>
+        
+</body>
+</html>
