@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>事件传播的过程</title>
+    <style>
+        .container,.box,.target{
+            border:1px solid black;
+            padding:15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">container
+        <div class="box">box
+            <div class="target">target</div>
+        </div>
+    </div>
+    <script>
+        function $(selector){return document.querySelector(selector)}
+        function $$(selector){return document.querySelectorAll(selector)}
+        var container = $(".container");
+        var box = $('.box');
+        var target =$('.target');
+        
+        container.addEventListener('click',function(){
+            console.log('container,buhuo');
+        },true)
+        box.addEventListener('click',function(e){
+            
+            console.log('box,buhuo');
+        },true)
+        target.addEventListener('click',function(){
+            console.log('target,buhuo');
+        },true)
+        container.addEventListener('click',function(){
+            console.log('container,maopao');
+        })
+        box.addEventListener('click',function(e){
+            console.log('box,maopao');
+            e.stopPropagation();
+        })
+        target.addEventListener('click',function(){
+            console.log('target,maopao');
+        })
+    </script>
+</body>
+</html>
