@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var userAgent = navigator.userAgent;
+        function isAndroid(){
+            if(userAgent.toLocaleLowerCase.match("android")){
+                console.log("用户使用的是Android")
+            }
+        }
+        function isIphone(){
+            if(userAgent.toLocaleLowerCase.match("iphone")){
+                console.log("用户使用的是iphone")
+            }
+        }
+        function isIpad(){
+            if(userAgent.toLocaleLowerCase.match("ipad")){
+                console.log("用户使用的是ipad")
+            }
+        }
+        function isIOS(){
+            if(userAgent.toLocaleLowerCase.match("ios")){
+                console.log("用户使用的是ios")
+            }
+        }
+    </script>
+</body>
+</html>
