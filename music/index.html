@@ -178,6 +178,7 @@
 
         getMusicList(function(list){
             musicList = list
+            console.log(musicList)
             loadMusic(list[currentIndex])
         })
 
@@ -219,7 +220,8 @@
             
         }
         $('.musicbox .forward').onclick = function(){
-            currentIndex = (++currentIndex)%currentIndex.length
+            currentIndex = (++currentIndex)%musicList.length
+            console.log('我是currentIndex'+currentIndex)
             loadMusic(musicList[currentIndex])
         }
         function getMusicList(callback){
