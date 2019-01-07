@@ -171,3 +171,22 @@ ul{
 ```css
     color:aliceblue;
 ```
+
+* box-shadow:向框添加一个或多个阴影
+    * h-shadow:必须。水平阴影的位置。允许负值
+    * v-shadow:必须。垂直阴影的位置。允许负值
+    * blur: 可选。模糊距离
+    * spread：可选。阴影的尺寸
+    * color：可选。阴影的颜色
+    * inset：可选将外部阴影（outset）改为内部阴影
+
+```js
+    box-shadow:h-shadow v-shadow blur spread color inset
+```
+
+* transition:`transition:poverty duration timing-function delay`简写过度属性，用于在一个属性中设置四个过度属性：
+    * transition-poverty 规定设置过渡效果的CSS
+    * tansition-duration 规定完成过渡效果需要多少秒或者毫秒
+    * transition-timing-function 规定过渡效果的速度曲线
+    * transition-delay 定义过渡效果合适开始
+

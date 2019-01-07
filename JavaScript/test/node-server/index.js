@@ -7,6 +7,7 @@ var server = http.createServer(function(req,res){
     var pathObj = url.parse(req.url,true)
     var direct = path.join(__dirname,'sample')
     var filePath = path.resolve(direct,pathObj.pathname)
+    
     fs.readFile(filePath,'binary',function(err,fileContent){
         if(err){
             console.log('404')

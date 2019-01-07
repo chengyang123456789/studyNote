@@ -105,11 +105,13 @@
         }
         .musicbox .list{
             list-style:none;
+            background-color: rgb(178, 207, 158);
+            box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1), 0px 2px 10px 0px rgba(0,0,0,0.5);
         }
         .musicbox .list>li{
             position:relative;
             padding:4px 10px;
-            border:1px solid rgba(255,255,155,.8);
+            border:1px solid #76dba3;
             border-top:none;
             overflow:hidden;
             cursor:pointer;
@@ -178,30 +180,34 @@
 
         getMusicList(function(list){
             musicList = list
-            console.log(musicList)
             loadMusic(list[currentIndex])
+            generateList(list)
         })
 
-        audio.ontimeupdate = function(){
-            console.log(this.currentTime)
+        audio.ontimeupdate = function(){  
             $('.musicbox .progress-now').style.width = (this.currentTime/this.duration)*100 +'%'   //duration是总时间                                                                        
         }
         
         audio.onplay = function(){
              clock = setInterval(function(){
             var min = Math.floor(audio.currentTime/60)
-            console.log(min)  
             var sec = Math.floor(audio.currentTime)%60 +''  
             sec = (sec.length === 2 ? sec : '0' + sec)
-            $('.musicbox .time').innerText = min + ':' + sec   
-            
-            console.log(sec)                                                                         
+            $('.musicbox .time').innerText = min + ':' + sec                                                                                      
             },1000)
         }
 
         audio.onpause = function(){
             clearInterval(clock)
         }
+
+        audio.onended = function(){
+            currentIndex = (++currentIndex) % musicList.length
+            console.log(currentIndex)
+            loadMusic(musicList[currentIndex])
+        }
+
+
 
         $('.musicbox .play').onclick = function(){
             if(audio.paused){
@@ -221,9 +227,20 @@
         }
         $('.musicbox .forward').onclick = function(){
             currentIndex = (++currentIndex)%musicList.length
-            console.log('我是currentIndex'+currentIndex)
             loadMusic(musicList[currentIndex])
         }
+
+        $('.musicbox .back').onclick = function(){
+            currentIndex = (musicList.length + (--currentIndex))%musicList.length
+            loadMusic(musicList[currentIndex])
+        }
+
+        $('.musicbox .bar').onclick = function(e){
+            var percent = e.offsetX / parseInt(getComputedStyle(this).width)
+            audio.currentTime = audio.duration * percent
+        }
+
+
         function getMusicList(callback){
             var xhr = new XMLHttpRequest()
             xhr.open('GET','music.json',true)
@@ -243,9 +260,31 @@
         function loadMusic(musicObj){
             $('.musicbox .title').innerText = musicObj.title
             $('.musicbox .auther').innerText = musicObj.auther
+            $('.cover').style.backgroundImage = 'url('+musicObj.img +')'
             audio.src = musicObj.src
             // console.log(musicObj.title)
             // console.log(musicObj.auther)
+        }
+
+        function generateList(list){
+            var container = document.createDocumentFragment()
+            list.forEach(function(musicObj){
+                var node = document.createElement('li')
+                node.innerText = musicObj.auther + '-'+ musicObj.title
+                container.appendChild(node)
+            })
+            $('.list').appendChild(container)
+            
+        }
+        $('.musicbox .list').onclick = function(e){
+            if(e.target.tagName.toLowerCase()==='li'){
+                for(var i=0 ;i < this.children.length;i++){
+                    if(this.children[i] === e.target){
+                        currentIndex = i
+                    }
+                }
+                loadMusic(musicList[currentIndex])
+            }
         }
     </script>
 
