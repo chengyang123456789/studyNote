@@ -37,7 +37,21 @@
 
 * 生成ssh key：
     ssh-keygen -t rsa -b 4096 -C "your_email@example.com" 引号里面填写自己的邮箱
-
+    cat ~/.ssh/id_rsa.pub  读取公钥
 * 在第一次commit时，必须先设置你的用户名和邮箱：
      git config --global user.email "你的邮箱"
      git config --global user.name "你的姓名"
+
+
+## 上传代码报错（可能性一）
+1、在使用git 对源代码进行push到gitHub时可能会出错
+
+2、出现错误的主要原因是github中的README.md文件不在本地代码目录中
+
+3、可以通过如下命令进行代码合并【注：pull=fetch+merge]
+
+git pull --rebase origin master
+
+4、执行上面代码后可以看到本地代码库中多了README.md文件
+
+5、此时再执行语句 git push 即可完成代码上传到github
