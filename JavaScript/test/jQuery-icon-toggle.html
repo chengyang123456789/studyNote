@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.min.js"></script>
+    <style>
+        @font-face {
+        font-family: 'iconfont';  /* project id 1028986 */
+        src: url('https://at.alicdn.com/t/font_1028986_092hlp3mjndc.eot');
+        src: url('https://at.alicdn.com/t/font_1028986_092hlp3mjndc.eot?#iefix') format('embedded-opentype'),
+        url('https://at.alicdn.com/t/font_1028986_092hlp3mjndc.woff2') format('woff2'),
+        url('https://at.alicdn.com/t/font_1028986_092hlp3mjndc.woff') format('woff'),
+        url('https://at.alicdn.com/t/font_1028986_092hlp3mjndc.ttf') format('truetype'),
+        url('https://at.alicdn.com/t/font_1028986_092hlp3mjndc.svg#iconfont') format('svg');
+        }
+
+        .box{
+            font-family: 'iconfont' !important
+        }
+        .icon-play::before{
+            content:'\e663';
+        }
+        .icon-pause::before{
+            content:'\e61e';
+        }
+    </style>
+</head>
+<body>
+    <div class="box icon-play"></div>
+    
+    <script>
+        $('.box').on('click',function(){
+            $(this).toggleClass('icon-pause')
+        })
+    </script>
+</body>
+</html>
+
+
+
+
+
+

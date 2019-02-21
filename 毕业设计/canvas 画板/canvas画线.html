@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style>
+  #canvas{
+  background:green;
+  display:block;
+}
+/*默认是inline-block，canvas是等比例缩放*/
+
+body{
+  margin:0px;
+  border:1px solid red;
+}
+html{
+  border:1px solid blue;
+}
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width=300 height=300>
+    
+  </canvas>
+  <script>
+  var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');//二次元上下文
+
+
+function drawCircle(x,y,radius){
+  context.beginPath()
+  context.fillStyle= "red"
+  context.arc(x,y,radius,0,Math.PI*2)
+  context.fill()
+}
+
+var painting = false
+var lastPoint = {x:undefined,y:undefined}
+canvas.onmousedown = function(e){
+  painting = true
+  var x = e.clientX     //x,y得到的坐标是相对于视口的坐标，不是canvas
+  var y = e.clientY
+  lastPoint={x:x,y:y}
+  drawCircle(x,y,1)
+}
+
+canvas.onmousemove = function(e){
+  if(painting){
+    painting = true
+  var x = e.clientX     //x,y得到的坐标是相对于视口的坐标，不是canvas
+  var y = e.clientY
+  var newPoint = {x:x,y:y}
+  drawCircle(x,y,1)
+  drawLine(lastPoint.x,lastPoint.y,newPoint.x,newPoint.y)
+  lastPoint = newPoint
+  }
+}
+
+canvas.onmouseup = function(){
+  painting = false
+}
+
+function drawLine(x1,y1,x2,y2){
+  context.beginPath()
+  context.strokeStyle = "red"
+  context.moveTo(x1,y1)　　//起点
+  context.lineWidth = 5
+  context.lineTo(x2,y2)  // 起点
+  context.stroke()
+  context.closePath()
+}
+  </script>
+</body>
+</html>

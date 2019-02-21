@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+   
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no,maximum-scale=1.0,minimum-scale=1.0">
+  <title>添加画笔</title>
+  <style>
+
+    ul,ol{
+        list-style:none;
+    }
+    *{
+        margin:0;
+        padding:0;
+    }
+
+
+    @font-face {
+  font-family: 'iconfont';  /* project id 1052126 */
+  src: url('//at.alicdn.com/t/font_1052126_hi218x6rbkf.eot');
+  src: url('//at.alicdn.com/t/font_1052126_hi218x6rbkf.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1052126_hi218x6rbkf.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1052126_hi218x6rbkf.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1052126_hi218x6rbkf.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1052126_hi218x6rbkf.svg#iconfont') format('svg');
+}
+
+.icon {
+    font-family: 'iconfont' !important;
+    font-size: 40px;
+    display:inline-block;
+    transition:all 0.3s;
+    margin:0 10px;
+}
+#pen{
+    font-size:37px;
+}
+#clear{
+    font-size:43px;
+}
+
+  #canvas{
+  background:white;
+  display:block;
+  border:1px solid #868383;
+}
+/*默认是inline-block，canvas是等比例缩放*/
+
+body{
+  margin:0px;
+  overflow:hidden;
+}
+
+.actions{
+  position:fixed;
+  top:0;
+  left:0;
+  padding:20px;
+}
+.actions .icon.active{
+    color:red;
+    transform:scale(1.2);
+    
+}
+.colors{
+    position:fixed;
+    top:79px;
+    left:27px;
+}
+.colors > li {
+    width:20px;
+    height:20px;
+    box-shadow:0 0 3px rgba(0,0,0,0.25);
+    margin:10px 0;
+    border-radius:50%;
+    transition:all 0.3s;
+}
+.colors > li.red{
+    background-color:red;
+}
+.colors > li.green{
+    background-color:green;
+}
+.colors > li.blue{
+    background-color:blue;
+} 
+.colors > li.active{
+    box-shadow:0 0 3px rgba(0,0,0,0.95);
+    transform:scale(1.2);
+}
+
+.sizes{
+    position: fixed;
+    right:10px;
+    top:45px;
+}
+.sizes > .thin{
+    height:0;
+    width:20px;
+    border-top:3px solid black;
+    margin:20px;
+}
+.sizes > .thick{
+    height:0px;
+    width:20px;
+    margin:20px;
+    border-top:6px solid black;
+}
+
+  </style>
+</head>
+
+
+<body>
+  <canvas id="canvas" width=300 height=300>    
+  </canvas>
+  <div id ="actions" class="actions ">
+    <div id="pen" class="active icon">&#xe640;</div>
+    <div id="eraser" class="icon">&#xe669;</div>
+    <div id="clear" class="icon">&#xe60e;</div>
+    <div id="downLoad" class="icon">&#xe62e;</div>
+  </div>
+  <ol class="colors">
+      <li id="red" class="red"></li>
+      <li id="green" class="green"></li>
+      <li id="blue" class="blue"></li>
+  </ol>
+  <ol class="sizes">
+      <li id="thin" class="thin"></li>
+      <li id="thick" class="thick"></li>
+  </ol>
+
+  <script>
+
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');//二次元上下文
+    var eraserEnabled = false
+    var using = false
+    var lastPoint = {x:undefined,y:undefined}
+    var lineWidth = 5
+
+
+
+    function drawCircle(x,y,radius){
+        context.beginPath()
+        context.arc(x,y,radius,0,Math.PI*2)
+        context.fill()
+    }
+
+    function getPageSize(){
+        var pageWidth = document.documentElement.clientWidth
+        var pageHeight = document.documentElement.clientHeight
+
+        canvas.width = pageWidth
+        canvas.height = pageHeight
+    }
+
+/*************/
+    pen.onclick=function(){
+        eraserEnabled = false
+        pen.classList.add('active')
+        eraser.classList.remove('active')
+    }
+    eraser.onclick=function(){
+        eraserEnabled = true
+        eraser.classList.add('active')
+        pen.classList.remove('active')
+    }
+    clear.onclick = function(){
+        context.clearRect(0,0,canvas.width,canvas.height);
+    }
+
+    //保存图片
+    downLoad.onclick = function(){
+        var url = canvas.toDataURL("image/png")
+        var a = document.createElement('a')
+        document.body.appendChild(a)
+        a.href = url
+        a.downLoad = 'downImg'
+        a.target='_blank'
+        a.click()
+    }
+/*************/
+
+red.onclick = function(){
+    context.fillStyle = 'red'
+    context.strokeStyle = 'red'
+    red.classList.add('active')
+    green.classList.remove('active')
+    blue.classList.remove('active')
+}
+
+green.onclick = function(){
+    context.fillStyle = 'green'
+    context.strokeStyle = 'green'
+    green.classList.add('active')
+    red.classList.remove('active')
+    blue.classList.remove('active')
+}
+
+blue.onclick = function(){
+    context.fillStyle = 'blue'
+    context.strokeStyle = 'blue'
+    blue.classList.add('active')
+    red.classList.remove('active')
+    green.classList.remove('active')
+}
+
+/****************/
+
+thin.onclick = function(){
+    lineWidth = 5
+}
+thick.onclick = function(){
+    lineWidth = 10
+}
+
+
+
+
+/*************/
+listenToUser(canvas)
+function listenToUser(canvas){
+  
+
+//特性检测
+if(document.body.ontouchstart !== undefined){
+  //触屏设备
+canvas.ontouchstart = function(e){
+  var x = e.touches[0].clientX     //x,y得到的坐标是相对于视口的坐标，不是canvas
+  var y = e.touches[0].clientY
+  console.log('touch')
+  if(eraserEnabled){
+    using = true
+    context.clearRect(x-5,y-5,10,10) //让橡皮擦的中心与鼠标重合
+  }else{
+    using = true
+    lastPoint={x:x,y:y}
+    drawCircle(x,y,1)
+  }
+}
+
+canvas.ontouchmove = function(e){
+  var x = e.touches[0].clientX     //x,y得到的坐标是相对于视口的坐标，不是canvas
+  var y = e.touches[0].clientY
+  if(eraserEnabled){
+    if(using){
+      context.clearRect(x-5,y-5,10,10)
+    }  
+  }else{
+    if(using){
+  var newPoint = {x:x,y:y}
+  //drawCircle(x,y,1)
+  drawLine(lastPoint.x,lastPoint.y,newPoint.x,newPoint.y)
+  lastPoint = newPoint
+  }
+  }  
+}
+
+canvas.ontouchend = function(e){
+    using = false
+}
+}else{
+
+    getPageSize()
+    window.onresize = function(){
+        getPageSize()
+
+    }
+
+  //非触屏设备
+    canvas.onmousedown = function(e){
+        var x = e.clientX     //x,y得到的坐标是相对于视口的坐标，不是canvas
+        var y = e.clientY
+        if(eraserEnabled){
+            using = true
+            context.clearRect(x-5,y-5,10,10) //让橡皮擦的中心与鼠标重合
+        }else{
+            using = true
+            lastPoint={x:x,y:y}
+            drawCircle(x,y,1)
+        }
+    }
+
+    canvas.onmousemove = function(e){
+        var x = e.clientX     //x,y得到的坐标是相对于视口的坐标，不是canvas
+        var y = e.clientY
+        if(eraserEnabled){
+            if(using){
+            context.clearRect(x-5,y-5,10,10)
+            }  
+        }else{
+            if(using){
+                var newPoint = {x:x,y:y}
+                drawCircle(x,y,1)
+                drawLine(lastPoint.x,lastPoint.y,newPoint.x,newPoint.y)
+                lastPoint = newPoint
+            }
+        }
+    }
+
+    canvas.onmouseup = function(){
+        using = false
+}
+
+}
+
+    function drawLine(x1,y1,x2,y2){
+    context.beginPath()
+    context.moveTo(x1,y1)　　//起点
+    context.lineWidth = lineWidth
+    context.lineTo(x2,y2)  // 起点
+    context.stroke()
+    context.closePath()
+    }
+
+
+}
+
+
+  </script>
+</body>
+</html>

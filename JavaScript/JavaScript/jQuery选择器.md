@@ -86,8 +86,8 @@ $('li.third-item').siblings()
 * .parents([selector])   得到所有祖先
 * .children([selector])  获得匹配元素集合中每个元素的子元素，选择器选择性筛选
 * .find([selector])   查找符合选择器的后代元素
-* .first()
-* .last()
+* .first()   获取当前结果集中的第一个对象
+* .last()    获取当前结果集中的最后一个对象
 * .filter(selector),.filter(function(index))  筛选当前结果集中符合条件的对象，参数可以是一个选择器或者一个函数
 
 ```js
@@ -96,4 +96,6 @@ $('li').filter(function(index){
     return index % 3 == 2;
  })
 ```
-* .not(selector),not(function(index))
+* .not(selector),not(function(index))  从匹配的元素集合中移除指定的元素，和filter相反
+* .is(selector),.is(unction(index)),is(dom/jqObj)   判断当前匹配的元素集合中的元素，是否为一个选择器，DOM元素或者jQuery对象，如果这些元素至少一个匹配给定的参数那么返回true
+* .has(selector),.has(dom)   筛选匹配元素集合中规定那些有相匹配的选择器或DOM元素的后代元素
