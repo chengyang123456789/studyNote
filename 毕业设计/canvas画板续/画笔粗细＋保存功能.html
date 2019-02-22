@@ -150,18 +150,23 @@ body{
         context.fill()
     }
 
-    function getPageSize(){
+    function getPageSize(canvas){
         var pageWidth = document.documentElement.clientWidth
         var pageHeight = document.documentElement.clientHeight
 
         canvas.width = pageWidth
         canvas.height = pageHeight
     }
-
-    window.onresize = function(){
-        getPageSize()
+    function autoSetCanvasSize(canvas){
+        getPageSize(canvas)
+        window.onresize = function(canvas){
+        getPageSize(canvas)
 
     }
+    }
+
+    autoSetCanvasSize(canvas)
+    
 /*************/
     pen.onclick=function(){
         eraserEnabled = false
