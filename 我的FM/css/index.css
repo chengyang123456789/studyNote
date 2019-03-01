@@ -172,7 +172,7 @@ footer>.layout{
 }
 footer .box{
     position: relative;
-    /*overflow:hidden;*/
+    overflow:hidden;
     height:24vh;
 }
 footer ul{
