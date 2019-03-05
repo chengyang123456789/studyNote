@@ -40,6 +40,15 @@ html,body,section {
 .iconfont {
     font-family:'iconfont' !important;
 }
+.btn-play::before{
+    content: '\e628';
+}
+.icon-pause::before{
+    content: '\e628';
+}
+.icon-play::before{
+    content:'\e645';
+}
 #page-cover{
     display: none;
 }
@@ -150,6 +159,7 @@ main .area-bar .bar-progress{
     transition: width .8s;
     background-color:#fff;
     border-radius: .2vh;
+    transition: width .8s;
 }
 main .author{
     font-size:2vh;

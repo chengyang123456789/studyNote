@@ -55,3 +55,12 @@ git pull --rebase origin master
 4、执行上面代码后可以看到本地代码库中多了README.md文件
 
 5、此时再执行语句 git push 即可完成代码上传到github
+
+
+## 安装browser-sync
+
+1. BrowserSync是一个npm包，所以在安装前他需要先装上Node.js
+2. npm install -g browser-sync          -g 表示全局安装
+
+* browser-sync     启动browser-sync
+* browser-sync start --server --files="**/*"

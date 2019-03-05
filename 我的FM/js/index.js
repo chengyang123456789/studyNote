@@ -27,20 +27,22 @@ var Footer = {
     blind:function(){
         var _this = this
         this.$rightBtn.on('click',function(){
-            
+            if(_this.isAnimate) return
             var itemWidth = _this.$box.find('li').outerWidth(true)
             var rowCount = Math.floor(_this.$box.width()/itemWidth)
             if(!_this.isToEnd){
+                _this.isAnimate = true
                 _this.$ul.animate({
                     left: '-=' + rowCount * itemWidth + 'px'
                 },400,function(){
-                    
+                    _this.isAnimate = false
                     _this.isToStart = false 
                     console.log('left ' + parseFloat(_this.$ul.css('left')))
                     console.log('box-width '+ parseFloat(_this.$box.width()))
                     console.log('ul-width '+ parseFloat(_this.$ul.css('width')))
-                    if(parseFloat(_this.$box.width()) - parseFloat(_this.$ul.css('left')) >= parseFloat(_this.$ul.css('width'))){
+                    if(parseFloat(_this.$box.width()) - parseFloat(_this.$ul.css('left')) + 20>= parseFloat(_this.$ul.css('width'))){
                         _this.isToEnd = true
+                       
                     }
                 })
             }
@@ -49,10 +51,13 @@ var Footer = {
         this.$leftBtn.on('click',function(){
             var itemWidth = _this.$box.find('li').outerWidth(true)
             var rowCount = Math.floor(_this.$box.width()/itemWidth)
+            if(_this.isAnimate) return
             if(!_this.isToStart){
+                _this.isAnimate = true
                 _this.$ul.animate({
                     left: '+=' + rowCount * itemWidth
                 },400,function(){
+                    _this.isAnimate = false
                     _this.isToEnd = false
                     if(parseFloat(_this.$ul.css('left')) >=0){
                         _this.isToStart = true
@@ -86,15 +91,16 @@ var Footer = {
     renderFooter:function(channels){
         console.log(channels)
         var html = ''
+        //unshift() 方法可向数组的开头添加一个或更多元素，并返回新的长度
         channels.unshift({
-            channel_id:0,
+            channel_id:0, 
             name:'我的最爱',
             cover_small:'http://cloud.hunger-valley.com/17-10-24/1906806.jpg-small',
             cover_middle:'http://cloud.hunger-valley.com/17-10-24/1906806.jpg-middle',
             cover_big: 'http://cloud.hunger-valley.com/17-10-24/1906806.jpg-big',
         })
         channels.forEach(function(channel){
-            html += '<li data-channel-id='+channel.channel_id+'>'
+            html += '<li data-channel-id='+channel.channel_id+' data-channel-name='+channel.name+'>'
                     +'  <div class="cover" style="background-image:url('+channel.cover_small+')"></div>'
                     + '  <h3>'+ channel.name+'</h3>'
                     + '</li>'
@@ -112,15 +118,100 @@ var Footer = {
     }
 }
 
-var App = {
+var Fm = {
     init:function(){
-        this.blind
+        this.$container = $('#page-music')
+        this.audio = new Audio()
+        this.audio.autoplay = true
+        this.bind()
     },
     bind:function(){
-        EventCenter.on('select-album',function(e,data){
-            console.log('select',data)
+        var _this = this
+        EventCenter.on('select-album',function(e,channelObj){
+            _this.channelId = channelObj.channelId
+            _this.channelName = channelObj.channelName
+            _this.loadMusic()
         })
+
+        this.$container.find('.btn-play').on('click',function(){
+            var $btn = $(this)
+            if(($btn).hasClass('icon-play')){
+                $btn.removeClass('icon-play').addClass('icon-pause')
+                _this.audio.play()
+            }else{
+                $btn.removeClass('icon-pause').addClass('icon-play')
+                _this.audio.pause()
+            }
+        })
+
+        this.$container.find('.btn-next').on('click',function(){
+            _this.loadMusic()
+        })
+
+        this.audio.addEventListener('play',function(){
+            clearInterval(_this.statusClock)
+            _this.statusClock = setInterval(function(){
+                _this.updateStatus()
+            },1000)
+        })
+        this.audio.addEventListener('pause',function(){
+            clearInterval(_this.statusClock)  
+        })
+    },
+    loadMusic(callback){   
+        var _this = this
+        $.getJSON('https://jirenguapi.applinzi.com/fm/getSong.php', {channel: this.channelId})
+        .done(function(ret){
+            _this.song = ret['song'][0]
+            _this.setMusic()
+            _this.loadLyric()
+        })
+    },
+    loadLyric(){
+        var _this = this
+        $.getJSON('https://jirenguapi.applinzi.com/fm/getLyric.php', {sid: this.song.sid})
+        .done(function(ret){
+            var lyric = ret.lyric
+            var lyricObj = {}
+            lyric.split('\n').forEach(function(line){
+                console.log(line)
+                var times = line.match(/\d{2}:\d{2}/g)
+                var str = line.replace(/\[.+?\]/g,'')
+                if(Array.isArray(times)){
+                    times.forEach(function(time){
+                        lyricObj[time] = str
+                    })
+                }
+                 console.log(ret.lyric)
+                // console.log(lyric.split('\n'))
+                // console.log('times:'+times)
+                // console.log(str)
+                // console.log(lyricObj)
+            })
+            _this.lyricObj = lyricObj
+        })
+    },
+    setMusic(){
+        console.log('wuhoo')
+        console.log(this.song)
+        this.audio.src = this.song.url
+        $('.bg').css('background-image','url('+this.song.picture+')')
+        this.$container.find('.aside figure').css('background-image','url('+this.song.picture+')')
+        this.$container.find('.detail h1').text(this.song.title)
+        this.$container.find('.detail .author').text(this.song.artist)
+        this.$container.find('.tag').text(this.channelName)
+        this.$container.find('.btn-play').removeClass('icon-play').addClass('icon-pause')
+    },
+    updateStatus(){
+        var min = Math.floor(this.audio.currentTime/60)  //将秒换算成分
+        var second = Math.floor(Fm.audio.currentTime%60)+''
+        second = second.length === 2?second:'0'+second
+        this.$container.find('.current-time').text(min+':'+second)
+        
+         //进度条
+         this.$container.find('.bar-progress').css('width',this.audio.currentTime/this.audio.duration*100+'%') 
+        
     }
 }
 Footer.init()
-App.init()
+Fm.init()
