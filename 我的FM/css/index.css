@@ -108,8 +108,9 @@ main .actions .iconfont:hover{
     color:white;
 }
 main .actions .iconfont.active{
-    color:#ff5722;
+    color:#ff5722 ;
 }
+
 main .detail {
     margin-left:56vh;
     color:white;

@@ -124,6 +124,7 @@ var Fm = {
         this.audio = new Audio()
         this.audio.autoplay = true
         this.bind()
+        
     },
     bind:function(){
         var _this = this
@@ -157,24 +158,44 @@ var Fm = {
         this.audio.addEventListener('pause',function(){
             clearInterval(_this.statusClock)  
         })
+        this.$container.find('.btn-collect').on('click',function(){
+            var $btn = $(this)
+            
+            if($btn.hasClass('active')){
+                $btn.removeClass('active')
+                songArr.pop(this.song)
+            }else{
+                $btn.addClass('active')
+                songArr.push(this.song)
+            }
+        })
+    },
+    favorite: function(){
+        this.$container.find('.btn-collect').on('click',function(){
+            var songArr = []
+            if(songArr.indexOf(this.song) < 0 ){
+                songArr.push(this.song)
+            }
+        })
+        this.collection = songArr
     },
     loadMusic(callback){   
         var _this = this
         $.getJSON('https://jirenguapi.applinzi.com/fm/getSong.php', {channel: this.channelId})
         .done(function(ret){
+            console.log(ret.song[0])
             _this.song = ret['song'][0]
             _this.setMusic()
-            _this.loadLyric()
+            _this.loadLyric()    
         })
     },
     loadLyric(){
         var _this = this
-        $.getJSON('https://jirenguapi.applinzi.com/fm/getLyric.php', {sid: this.song.sid})
+        $.getJSON('https://jirenguapi.applinzi.com/fm/getLyric.php', {sid: _this.song.sid})
         .done(function(ret){
             var lyric = ret.lyric
             var lyricObj = {}
             lyric.split('\n').forEach(function(line){
-                console.log(line)
                 var times = line.match(/\d{2}:\d{2}/g)
                 var str = line.replace(/\[.+?\]/g,'')
                 if(Array.isArray(times)){
@@ -182,13 +203,8 @@ var Fm = {
                         lyricObj[time] = str
                     })
                 }
-                 console.log(ret.lyric)
-                // console.log(lyric.split('\n'))
-                // console.log('times:'+times)
-                // console.log(str)
-                // console.log(lyricObj)
             })
-            _this.lyricObj = lyricObj
+            _this.lyric = lyricObj
         })
     },
     setMusic(){
@@ -201,6 +217,7 @@ var Fm = {
         this.$container.find('.detail .author').text(this.song.artist)
         this.$container.find('.tag').text(this.channelName)
         this.$container.find('.btn-play').removeClass('icon-play').addClass('icon-pause')
+
     },
     updateStatus(){
         var min = Math.floor(this.audio.currentTime/60)  //将秒换算成分
@@ -211,7 +228,28 @@ var Fm = {
          //进度条
          this.$container.find('.bar-progress').css('width',this.audio.currentTime/this.audio.duration*100+'%') 
         
-    }
+         //歌词
+         var line = this.lyric['0'+min+':'+second]
+         if(line){
+            this.$container.find('.lyric p').text(line)
+         }
+    },
+    // loadFromLocal: function(){
+    //     return JSON.parse(localStorage['collections']||'{}')
+    // },
+
+    // saveToLocal: function(){
+    //     localStorage['collections'] = JSON.stringify(this.collections)
+    // },
+
+    // loadCollection: function(){
+    //     var keyArray = Object.keys(this.collections)
+    //     if(keyArray.length === 0) return
+    //     var randomIndex = Math.floor(Math.random()* keyArray.length)
+    //     var randomSid = keyArray[randomIndex]
+    //     this.play(this.collections[randomSid])
+    // }
+    
 }
 Footer.init()
 Fm.init()

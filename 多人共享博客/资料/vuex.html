@@ -1,0 +1,65 @@
+<body>
+    <div id="app"></div>
+    <script>
+        Vue.use(Vuex)
+
+        const store = new Vuex.Store({
+            state:{
+                count:0,
+                firstName:'hunger',
+                lastName:'lili',
+            },
+            mutations:{
+                increment(state){
+                    state.count++
+                },
+                modifyFirstName(state,newName){
+                    state.firstName = newName
+                }
+            },
+            getters:{
+                fullName(state){
+                    return state.firstName+' '+state.lastName
+                }
+            }
+        })
+
+        const Counter = {
+            template:`
+            <div>
+            <div>{{ count }}</div>
+            <div>{{firstName}} {{lastName}}</div>
+            <button @click="add">+</button>
+            <p></p>
+            </div>
+            `,
+            computed:{
+                count(){
+                    return this.$store.state.count
+                },
+                // fullName(){
+                //     return this.$store.getters.fullName
+                // }
+                // ,
+                ...Vuex.mapState(['firstName','lastName']),
+                ...Vuex.mapGetters([fullName])
+            },
+            methods:{
+                add(){
+                    return this.$store.state.commit('increment')
+                }
+            }
+        }
+
+        const app = new Vue({
+            el:'#app',
+            store:store,
+            components:{Counter},
+            template:`
+            <div class="app">
+                <counter></counter>
+            </div>
+            `
+        })
+    </script>
+</body>
