@@ -229,7 +229,8 @@ var Fm = {
          this.$container.find('.bar-progress').css('width',this.audio.currentTime/this.audio.duration*100+'%') 
         
          //歌词
-         var line = this.lyric['0'+min+':'+second]
+         //var line = this.lyric['0'+min+':'+second]
+         var line = this.lyricObj['0'+min+':'+second]
          if(line){
             this.$container.find('.lyric p').text(line)
          }
