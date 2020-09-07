@@ -116,3 +116,44 @@ event对象包含与创建它的特定事件有关的属性和方法，触发事
 
 
 ##JS教材网址:javascript.ruanyifeng.com
+
+
+## 用mouse事件写一个可拖拽的div
+
+```js
+    div{
+        border: 1px solid red;
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100px;
+        height: 100px;
+    }
+    <div id="xxx"></div>
+
+
+    var dragging = false;
+    var position = null;
+    xxx.addEventListener('mousedown',function(e){
+    dragging = true;
+    position = [e.clientX,e.clientY];
+    })
+    document.addEventListener('mousemove',function(e){
+    if(dragging === false){return}
+        const x = e.clientX;
+        const y = e.clientY;
+        const deleteX = e.clientX - position[0];
+        const deleteY = e.clientY - position[1];
+        const top = parseInt(xxx.style.top || 0);
+        const left = parseInt(xxx.style.left || 0);
+        xxx.style.top = top + deleteY + 'px';
+        xxx.style.left = left + deleteX + 'px';
+        position = [x,y];
+    
+    
+    })
+    document.addEventListener('mouseup',function(e){
+    dragging = false;
+    })
+
+```
